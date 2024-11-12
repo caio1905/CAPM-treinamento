@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="V_TESTE" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="true" application="BAS">
+<descriptions defaultDescription="v_exemplo"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="TREINAMENTO_USUARIOS">
+    <resourceUri>TREINAMENTO_USUARIOS</resourceUri>
+  </DataSource>
+  <DataSource id="TREINAMENTO_ENDERECO">
+    <resourceUri>TREINAMENTO_ENDERECO</resourceUri>
+  </DataSource>
+  <DataSource id="TREINAMENTO_CONTATOS">
+    <resourceUri>TREINAMENTO_CONTATOS</resourceUri>
+  </DataSource>
+  <DataSource id="TREINAMENTO_VEICULOS">
+    <resourceUri>TREINAMENTO_VEICULOS</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1_1" cardinality="C1_N" joinType="leftOuter" multiJoinNode="Join_1" multiJoinCentralTable="TREINAMENTO_USUARIOS" multiJoinOrder="Outside In">
+    <viewAttributes>
+      <viewAttribute id="CPF"/>
+      <viewAttribute id="NOME"/>
+      <viewAttribute id="DATANASCIMENTO"/>
+      <viewAttribute id="LOGRADOURO"/>
+      <viewAttribute id="NUMERO"/>
+      <viewAttribute id="BAIRRO"/>
+      <viewAttribute id="PAIS"/>
+      <viewAttribute id="SEXO"/>
+      <viewAttribute hidden="true" id="JOIN$CPF$CPF"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="TREINAMENTO_USUARIOS">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CPF" source="CPF"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NOME" source="NOME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DATANASCIMENTO" source="DATANASCIMENTO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SEXO" source="SEXO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CPF$CPF" source="CPF"/>
+    </input>
+    <input node="TREINAMENTO_ENDERECO">
+      <mapping xsi:type="Calculation:AttributeMapping" target="LOGRADOURO" source="LOGRADOURO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NUMERO" source="NUMERO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BAIRRO" source="BAIRRO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PAIS" source="PAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CPF$CPF" source="CPF"/>
+    </input>
+    <joinAttribute name="JOIN$CPF$CPF"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1_2" cardinality="C1_N" joinType="leftOuter" multiJoinNode="Join_1" multiJoinCentralTable="TREINAMENTO_USUARIOS" multiJoinOrder="Outside In">
+    <viewAttributes>
+      <viewAttribute id="CPF"/>
+      <viewAttribute id="NOME"/>
+      <viewAttribute id="DATANASCIMENTO"/>
+      <viewAttribute id="LOGRADOURO"/>
+      <viewAttribute id="NUMERO"/>
+      <viewAttribute id="BAIRRO"/>
+      <viewAttribute id="PAIS"/>
+      <viewAttribute id="SEXO"/>
+      <viewAttribute id="EMAIL"/>
+      <viewAttribute id="TELEFONE"/>
+      <viewAttribute hidden="true" id="JOIN$CPF$CPF"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Join_1_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CPF" source="CPF"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NOME" source="NOME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DATANASCIMENTO" source="DATANASCIMENTO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LOGRADOURO" source="LOGRADOURO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NUMERO" source="NUMERO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BAIRRO" source="BAIRRO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PAIS" source="PAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SEXO" source="SEXO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CPF$CPF" source="CPF"/>
+    </input>
+    <input node="TREINAMENTO_CONTATOS">
+      <mapping xsi:type="Calculation:AttributeMapping" target="EMAIL" source="EMAIL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TELEFONE" source="TELEFONE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CPF$CPF" source="CPF"/>
+    </input>
+    <joinAttribute name="JOIN$CPF$CPF"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1_3" cardinality="C1_N" joinType="leftOuter" multiJoinNode="Join_1" multiJoinCentralTable="TREINAMENTO_USUARIOS" multiJoinOrder="Outside In">
+    <viewAttributes>
+      <viewAttribute id="CPF"/>
+      <viewAttribute id="NOME"/>
+      <viewAttribute id="DATANASCIMENTO"/>
+      <viewAttribute id="LOGRADOURO"/>
+      <viewAttribute id="NUMERO"/>
+      <viewAttribute id="BAIRRO"/>
+      <viewAttribute id="PAIS"/>
+      <viewAttribute id="SEXO"/>
+      <viewAttribute id="EMAIL"/>
+      <viewAttribute id="TELEFONE"/>
+      <viewAttribute id="MARCA"/>
+      <viewAttribute id="MODELO"/>
+      <viewAttribute id="PRECO"/>
+      <viewAttribute id="MOEDA"/>
+      <viewAttribute hidden="true" id="JOIN$CPF$CPF"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Join_1_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CPF" source="CPF"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NOME" source="NOME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DATANASCIMENTO" source="DATANASCIMENTO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LOGRADOURO" source="LOGRADOURO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NUMERO" source="NUMERO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BAIRRO" source="BAIRRO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PAIS" source="PAIS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SEXO" source="SEXO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EMAIL" source="EMAIL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TELEFONE" source="TELEFONE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CPF$CPF" source="CPF"/>
+    </input>
+    <input node="TREINAMENTO_VEICULOS">
+      <mapping xsi:type="Calculation:AttributeMapping" target="MARCA" source="MARCA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MODELO" source="MODELO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRECO" source="PRECO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MOEDA" source="MOEDA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$CPF$CPF" source="CPF"/>
+    </input>
+    <joinAttribute name="JOIN$CPF$CPF"/>
+  </calculationView>
+</calculationViews>
+
+<logicalModel id="Join_1_3">
+  <attributes>
+    <attribute id="CPF" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CPF"/>
+      <keyMapping columnObjectName="Join_1_3" columnName="CPF"/>
+    </attribute>
+    <attribute id="NOME" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NOME"/>
+      <keyMapping columnObjectName="Join_1_3" columnName="NOME"/>
+    </attribute>
+    <attribute id="DATANASCIMENTO" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DATANASCIMENTO"/>
+      <keyMapping columnObjectName="Join_1_3" columnName="DATANASCIMENTO"/>
+    </attribute>
+    <attribute id="MARCA" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MARCA"/>
+      <keyMapping columnObjectName="Join_1_3" columnName="MARCA"/>
+    </attribute>
+    <attribute id="MODELO" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MODELO"/>
+      <keyMapping columnObjectName="Join_1_3" columnName="MODELO"/>
+    </attribute>
+    <attribute id="PRECO" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRECO"/>
+      <keyMapping columnObjectName="Join_1_3" columnName="PRECO"/>
+    </attribute>
+    <attribute id="MOEDA" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MOEDA"/>
+      <keyMapping columnObjectName="Join_1_3" columnName="MOEDA"/>
+    </attribute>
+    <attribute id="EMAIL" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EMAIL"/>
+      <keyMapping columnObjectName="Join_1_3" columnName="EMAIL"/>
+    </attribute>
+    <attribute id="TELEFONE" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TELEFONE"/>
+      <keyMapping columnObjectName="Join_1_3" columnName="TELEFONE"/>
+    </attribute>
+    <attribute id="LOGRADOURO" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LOGRADOURO"/>
+      <keyMapping columnObjectName="Join_1_3" columnName="LOGRADOURO"/>
+    </attribute>
+    <attribute id="NUMERO" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NUMERO"/>
+      <keyMapping columnObjectName="Join_1_3" columnName="NUMERO"/>
+    </attribute>
+    <attribute id="BAIRRO" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BAIRRO"/>
+      <keyMapping columnObjectName="Join_1_3" columnName="BAIRRO"/>
+    </attribute>
+    <attribute id="PAIS" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PAIS"/>
+      <keyMapping columnObjectName="Join_1_3" columnName="PAIS"/>
+    </attribute>
+  
+    <attribute id="SEXO" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SEXO"/>
+  
+      <keyMapping columnObjectName="Join_1_3" columnName="SEXO"/>
+  
+    </attribute>
+  </attributes>
+  <calculatedAttributes>
+    <calculatedAttribute id="IDADE" order="14" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <keyCalculation datatype="INTEGER" expressionLanguage="SQL">
+        <formula>YEARS_BETWEEN(TO_DATE(&quot;DATANASCIMENTO&quot;),NOW())</formula>
+      </keyCalculation>
+    </calculatedAttribute>
+  </calculatedAttributes>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="91" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+    
+  
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="91" y="232"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="TREINAMENTO_VEICULOS" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput" multiJoinViewNodeName="Join_1">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="219"/>
+    </shape>
+    <shape modelObjectName="TREINAMENTO_CONTATOS" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput" multiJoinViewNodeName="Join_1">
+      <upperLeftCorner x="320" y="216"/>
+      <rectangleSize width="223"/>
+    </shape>
+    <shape modelObjectName="TREINAMENTO_USUARIOS" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput" multiJoinViewNodeName="Join_1">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="221"/>
+    </shape>
+    <shape modelObjectName="TREINAMENTO_ENDERECO" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput" multiJoinViewNodeName="Join_1">
+      <upperLeftCorner x="320" y="357"/>
+      <rectangleSize width="226"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
